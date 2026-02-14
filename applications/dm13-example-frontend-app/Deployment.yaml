@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dm13-example-frontend-app-deployment
+  labels:
+    app: dm13-example-frontend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dm13-example-frontend-app
+  template:
+    metadata:
+      labels:
+        app: dm13-example-frontend-app
+    spec:
+      containers:
+      - name: dm13-example-frontend-app
+        image: ghcr.io/dm13-devops-demo/dm13-example-frontend-app:5d35811d4e4fc936cddc6c82b756e8c41413befe
+        ports:
+        - containerPort: 3000
+
